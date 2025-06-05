@@ -7,7 +7,7 @@ struct PLTS_Data {
     float energiHarian;
     float totalEnergi;
     int lokasi; // 1: Rumah, 2: Gedung, 3: Lahan
-}
+};
 
 const char* namaLokasi(int lokasi) {
     switch (lokasi) {
