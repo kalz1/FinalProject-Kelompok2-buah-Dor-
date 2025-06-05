@@ -72,13 +72,13 @@ void tampilkanRangkuman(struct PLTS_Data *data, int totalInput) {
     printf("Total energi dari seluruh simulasi: %.2f kWh\n", total);
 }
 
-int main(){
+int main() {
     int tahunSimulasi, lokasi;
     float efisiensiPanel = 0.18, luasPanel = 50.0;
     int indexRangkuman = 0;
 
-    struct PLTS_Data data = (struct PLTS_Data) calloc(100, sizeof(struct PLTS_Data));
-    struct PLTS_Data rangkuman = (struct PLTS_Data) calloc(1000, sizeof(struct PLTS_Data));
+    struct PLTS_Data *data = (struct PLTS_Data*) calloc(100, sizeof(struct PLTS_Data));
+    struct PLTS_Data *rangkuman = (struct PLTS_Data*) calloc(1000, sizeof(struct PLTS_Data));
 
     do {
         printf("=== SIMULASI PEMBANGKIT LISTRIK TENAGA SURYA ===\n");
@@ -115,6 +115,5 @@ int main(){
     free(rangkuman);
 
     printf("\nKeluar Program\n");
-
     return 0;
 }
