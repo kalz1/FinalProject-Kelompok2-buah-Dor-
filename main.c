@@ -9,6 +9,24 @@ struct PLTS_Data {
     int lokasi; // 1: Rumah, 2: Gedung, 3: Lahan
 };
 
+const char* namaLokasi(int lokasi) {
+    switch (lokasi) {
+        case 1: return "Atap Rumah";
+        case 2: return "Gedung Pemerintah";
+        case 3: return "Lahan Terbuka";
+        default: return "Tidak diketahui";
+    }
+}
+
+float faktorLokasi(int lokasi) {
+    switch (lokasi) {
+        case 1: return 1.0;
+        case 2: return 1.1;
+        case 3: return 0.95;
+        default: return 1.0;
+    }
+}
+
 void inputData(struct PLTS_Data *data, int tahun, float efisiensi, float luasPanel, int lokasi) {
     for (int i = 0; i < tahun; i++) {
         data[i].tahun = i + 1;
