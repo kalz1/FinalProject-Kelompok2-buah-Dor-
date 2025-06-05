@@ -36,6 +36,24 @@ void tampilkanData(struct PLTS_Data *data, int tahun) {
     printf("Total energi dalam %d tahun: %.2f kWh\n\n", tahun, total);
 }
 
+void tampilkanRangkuman(struct PLTS_Data *data, int totalInput) {
+    float total = 0;
+
+    printf("\n=============== RANGKUMAN SELURUH SIMULASI ===============\n");
+    printf("+--------+--------------------------+----------------------+---------------------+\n");
+    printf("| Tahun  | Energi Harian (kWh/m²)  | Total Energi (kWh)   | Lokasi              |\n");
+    printf("+--------+--------------------------+----------------------+---------------------+\n");
+
+    for (int i = 0; i < totalInput; i++) {
+        printf("| %-6d | %-24.2f | %-20.2f | %-19s |\n",
+            data[i].tahun, data[i].energiHarian, data[i].totalEnergi, namaLokasi(data[i].lokasi));
+        total += data[i].totalEnergi;
+    }
+
+    printf("+--------+--------------------------+----------------------+---------------------+\n");
+    printf("Total energi dari seluruh simulasi: %.2f kWh\n", total);
+}
+
 int main(){
     
 
